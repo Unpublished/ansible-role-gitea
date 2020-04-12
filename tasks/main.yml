@@ -52,10 +52,12 @@
 - name: "Configure gitea"
   template:
     src: gitea.ini.j2
-    dest: /etc/gitea/gitea.ini
+    dest: "{{ gitea_config_path }}"
     owner: "{{ gitea_user }}"
     mode: 0600
-  notify: "Restart gitea"
+  notify:
+    - "Restart gitea"
+    - "Setup admin"
 
 - name: "Service gitea"
   service:

@@ -20,6 +20,8 @@ gitea_http_port: 3000
 gitea_disable_http_git: false
 gitea_offline_mode: true
 
+gitea_config_path: "/etc/gitea/gitea.ini"
+
 gitea_lfs_server_enabled: false
 gitea_lfs_content_path: "{{ gitea_home }}/data/lfs"
 gitea_lfs_jwt_secret: LongUniqueS3cret_
@@ -83,3 +85,6 @@ gitea_repo_exclude_vendored: true
 gitea_repo_indexer_max_file_size: 1048576
 
 gitea_extra_config: ""
+
+gitea_admin_user: "admin"
+gitea_admin_password: "asecurepassword"
