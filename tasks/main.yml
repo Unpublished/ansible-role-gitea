@@ -52,3 +52,16 @@
 
 - include: fail2ban.yml
   when: gitea_fail2ban_enabled|bool
+
+- name: "Create admin account"
+  command:
+    argv:
+      - gitea
+      - admin
+      - create-user
+      - --username
+      - {{ gitea_admin_user }}
+      - --password
+      - {{ gitea_admin_password }}
+      - --email
+      - me@example.com
