@@ -7,6 +7,7 @@ rules:
     level: warning
 
 ignore: |
+  .github/dependabot.yml
   /venv/
   /env/
   /molecule/
