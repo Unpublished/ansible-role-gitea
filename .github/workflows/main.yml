@@ -6,10 +6,6 @@ name: CI
     branches:
       - dev
 
-defaults:
-  run:
-    working-directory: 'thomas_maurice.ansible_role_gitea'
-
 jobs:
   molecule:
     name: Molecule
@@ -28,8 +24,6 @@ jobs:
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
-        with:
-          path: 'thomas_maurice.ansible_role_gitea'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
