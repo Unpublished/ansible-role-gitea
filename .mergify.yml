@@ -1,0 +1,15 @@
+pull_request_rules:
+  - name: Automatic merge on approval
+    conditions:
+      - "#approved-reviews-by>=1"
+      - check-success~=Molecule \(centos7, \d\..{1}\)
+      - check-success~=Molecule \(centos8, \d\..{1}\)
+      - check-success~=Molecule \(debian9, \d\..{1}\)
+      - check-success~=Molecule \(debian10, \d\..{1}\)
+      - check-success~=Molecule \(fedora31, \d\..{1}\)
+      - check-success=Molecule (ubuntu1604, 3.5)
+      - check-success=Molecule (ubuntu1804, 3.6)
+      - check-success=Molecule (ubuntu2004, 3.8)
+    actions:
+      merge:
+        method: merge
