@@ -18,7 +18,7 @@ click-help-colors==0.9
 colorama==0.4.3
 cookiecutter==1.7.0
 cryptography==3.2
-docker==4.2.0
+docker==4.4.1
 docker-pycreds==0.4.0
 entrypoints==0.3
 fasteners==0.15
@@ -35,7 +35,7 @@ molecule==3.0.2.1
 monotonic==1.5
 more-itertools==6.0.0
 paramiko==2.7.1
-pathspec==0.8.0
+pathspec==0.8.1
 pbr==5.1.1
 pexpect==4.8.0
 pi==0.1.2
