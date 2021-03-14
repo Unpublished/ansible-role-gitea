@@ -1,0 +1,47 @@
+---
+name: Molecule
+
+# yamllint disable-line rule:truthy
+on: [push, pull_request]
+
+defaults:
+  run:
+    working-directory: 'thomas_maurice.ansible_role_gitea'
+
+jobs:
+  molecule:
+    name: Molecule
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        distro:
+          - centos7
+          - centos8
+          - debian9
+          - debian10
+          - fedora33
+          - ubuntu1604
+          - ubuntu1804
+          - ubuntu2004
+        python: [3.7]
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'thomas_maurice.ansible_role_gitea'
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install test dependencies.
+        run: pip3 -q install -r requirements-travis.txt
+
+      - name: Run Molecule tests.
+        run: molecule test
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}
